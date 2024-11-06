@@ -23,6 +23,46 @@ exit_points = [(i, j) for i in range(maze_matrix.shape[0]) for j in range(maze_m
                if (i == 0 or i == maze_matrix.shape[0] - 1 or j == 0 or j == maze_matrix.shape[1] - 1) 
                and maze_matrix[i, j] == 0]
 
+# Define qubits and circuit
+qubits = [cirq.LineQubit(i) for i in range(3)]
+circuit = cirq.Circuit()
+
+# Apply Hadamard gates for superposition (simulating potential path moves)
+circuit.append([cirq.H(q) for q in qubits[:2]])
+
+# Define the oracle based on the exit position as a quantum "win" condition
+def oracle(circuit, qubits):
+    circuit.append(cirq.CCX(qubits[0], qubits[1], qubits[2]))  # Example oracle marking paths
+
+# Define the diffusion operator for amplitude amplification
+def diffusion(circuit, qubits):
+    circuit.append([cirq.H(q) for q in qubits[:2]])
+    circuit.append([cirq.X(q) for q in qubits[:2]])
+    circuit.append(cirq.CZ(qubits[0], qubits[1]))
+    circuit.append([cirq.X(q) for q in qubits[:2]])
+    circuit.append([cirq.H(q) for q in qubits[:2]])
+
+# Apply oracle and diffusion operations
+oracle(circuit, qubits)
+diffusion(circuit, qubits)
+
+# Measure qubits to simulate pathfinding
+circuit.append(cirq.measure(*qubits[:2], key='result'))
+
+# Run the quantum circuit
+simulator = cirq.Simulator()
+result = simulator.run(circuit, repetitions=100)
+measurement_counts = result.histogram(key='result')
+
+# Convert measurement results into directional moves based on probabilities
+move_mapping = {0: (0, 1), 1: (1, 0), 2: (0, -1), 3: (-1, 0)}
+def select_move(measurement_counts):
+    sorted_counts = sorted(measurement_counts.items(), key=lambda item: item[1], reverse=True)
+    high_prob_move = sorted_counts[0][0]  # Choose highest probability measurement
+    return move_mapping[high_prob_move % 4]  # Map result to direction
+
+# Quantum-inspired pathfinding function
+
 # Ensure that at least one exit point is valid
 if not exit_points:
     print("No valid exit points!")
