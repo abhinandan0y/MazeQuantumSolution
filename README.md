@@ -3,7 +3,7 @@
 #### Quantum pathfinding and Maze visualization:
 <img src="https://raw.githubusercontent.com/abhinandan0y/MazeQuantumSolution/refs/heads/main/Q-MazeSol.png"/>
 
-
+#### check v2.5
 #### 1. Import Libraries and Define Maze Matrix
 ```python
 
