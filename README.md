@@ -8,7 +8,7 @@
 #### Abstract:
 
 ```
-Classical maze-solving algorithms, such as depth-first search and A*, <br> often face computational challenges as maze complexity increases. This study introduces a quantum-inspired approach to the maze navigation problem, utilizing key principles from quantum computing, including superposition, entanglement, and amplitude amplification, to optimize pathfinding in complex, dynamic environments. By simulating quantum gates and leveraging entanglement between moves, the algorithm probabilistically samples potential paths, applying iterative quantum oracle and diffusion operations to amplify the probability of reaching an exit.
+Classical maze-solving algorithms, such as depth-first search and A*, <\br> often face computational challenges as maze complexity increases. This study introduces a quantum-inspired approach to the maze navigation problem, utilizing key principles from quantum computing, including superposition, entanglement, and amplitude amplification, to optimize pathfinding in complex, dynamic environments. By simulating quantum gates and leveraging entanglement between moves, the algorithm probabilistically samples potential paths, applying iterative quantum oracle and diffusion operations to amplify the probability of reaching an exit.
 
 The approach is evaluated against traditional algorithms in terms of efficiency and accuracy. Results demonstrate that the quantum-inspired algorithm can identify solution paths with fewer computational steps, offering significant time efficiency improvements, especially in irregular or large maze structures. This highlights the algorithm's potential in solving combinatorial optimization problems where classical methods often struggle due to time or resource constraints.
 
