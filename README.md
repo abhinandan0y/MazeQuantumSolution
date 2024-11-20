@@ -16,6 +16,7 @@
 ```entanglement between moves, the algorithm probabilistically samples potential paths, ```
 ```applying iterative quantum oracle and diffusion operations to amplify the probability of reaching an exit.```
 
+
 ```The approach is evaluated against traditional algorithms in terms of efficiency and accuracy. Results demonstrate that the quantum-inspired algorithm can identify solution paths with fewer computational steps, offering significant time efficiency improvements, especially in irregular or large maze structures. This highlights the algorithm's potential in solving combinatorial optimization problems where classical methods often struggle due to time or resource constraints.```
 
 ```This research contributes to the growing body of work exploring quantum-inspired algorithms for optimization, providing a novel framework for integrating quantum principles into real-world applications such as robotics, logistics, and computational game design. By offering a more dynamic, non-deterministic pathfinding method that incorporates probabilistic sampling and iterative diffusion, this work paves the way for new optimization techniques in complex maze environments. Future research could further explore hybrid quantum-classical approaches and examine the scalability of these methods in larger, more dynamic maze structures.
